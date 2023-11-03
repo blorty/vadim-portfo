@@ -22,6 +22,7 @@ const Nav = styled.div`
 
 const NavContainer = styled.div`
     display: flex;
+    align-items: center;
     justify-content: space-between;
     height: 60px;
     z-index: 1;
@@ -32,16 +33,14 @@ const NavContainer = styled.div`
 
 
 const NavLogo = styled(LinkR)`
-    width: 80%;
-    padding: 0 6px
+    width: 80%;    
+    padding: 0 6px;
     display: flex;
-    justify-self: flex-start;
+    justify-content: start;
     align-items: center;
-    cursor: pointer;
-    font-size: 1.5rem;
     text-decoration: none;
-    @media screen and (max-width: 640px) {
-        padding: 0 0px
+    @media (max-width: 640px) {
+    padding: 0 0px;
     }
 `
 
@@ -75,7 +74,7 @@ const NavItems = styled.ul`
 
 
 const StyledNavLink = styled(LinkNav)` // Renamed NavLink to StyledNavLink
-    color: ${({ theme }) => theme.text_primary};
+    color: ${({ theme }) => theme.sand_dollar};
     font-weight: 500;  
     display: flex;
     align-items: center;
@@ -101,7 +100,7 @@ const IconContainer = styled.div`
 
 
 const GithubIcon = styled.div`
-    border: 1px solid ${({ theme }) => theme.text_primary};
+    border: 1px solid ${({ theme }) => theme.tangerine};
     display: flex;
     height: 70%;
     border-radius: 15px;
@@ -111,9 +110,10 @@ const GithubIcon = styled.div`
     font-size: 1.5rem;
     font-weight: 500;
     cursor: pointer;
+    color: ${({ theme }) => theme.black_two}; // Black Two for the text color
     :hover {
-        background-color: ${({ theme }) => theme.text_primary};
-        color: ${({ theme }) => theme.white};
+        background-color: ${({ theme }) => theme.sand_dollar}; 
+        color: ${({ theme }) => theme.red}; // Red for the text color on hover
     }
     @media screen and (max-width: 640px) {
         font-size: 1.2rem;
@@ -122,64 +122,73 @@ const GithubIcon = styled.div`
 
 
 const LinkedinIcon = styled.div`
-    border: 1px solid ${({ theme }) => theme.text_primary};
-    display: flex;
-    height: 70%;
-    border-radius: 15px;
+    border: 1.8px solid ${({ theme }) => theme.primary};
     justify-content: center;
+    display: flex;
     align-items: center;
-    padding: 0 20px;
-    font-size: 1.5rem;
-    font-weight: 500;
+    height: 70%;
+    border-radius: 20px;
+    color: ${({ theme }) => theme.primary};
     cursor: pointer;
-    :hover {
-        background-color: ${({ theme }) => theme.text_primary};
-        color: ${({ theme }) => theme.white};
-    }
-    @media screen and (max-width: 640px) {
-        font-size: 1.2rem;
+    padding: 0 20px;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.6s ease-in-out;
+        :hover {
+            background: ${({ theme }) => theme.primary};
+            color: ${({ theme }) => theme.white};     
+        }
+    @media screen and (max-width: 768px) { 
+    font-size: 14px;
     }
 `
 
 
 const InstagramIcon = styled.div`
-    border: 1px solid ${({ theme }) => theme.text_primary};
-    display: flex;
-    height: 70%;
-    border-radius: 15px;
+    border: 1.8px solid ${({ theme }) => theme.primary};
     justify-content: center;
+    display: flex;
     align-items: center;
-    padding: 0 20px;
-    font-size: 1.5rem;
-    font-weight: 500;
+    height: 70%;
+    border-radius: 20px;
+    color: ${({ theme }) => theme.primary};
     cursor: pointer;
-    :hover {
-        background-color: ${({ theme }) => theme.text_primary};
-        color: ${({ theme }) => theme.white};
-    }
-    @media screen and (max-width: 640px) {
-        font-size: 1.2rem;
+    padding: 0 20px;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.6s ease-in-out;
+        :hover {
+            background: ${({ theme }) => theme.primary};
+            color: ${({ theme }) => theme.white};     
+        }
+    @media screen and (max-width: 768px) { 
+    font-size: 14px;
     }
 `
 
 
 const MediumIcon = styled.div`
-    border: 1px solid ${({ theme }) => theme.text_primary};
-    display: flex;
-    height: 70%;
-    border-radius: 15px;
+    border: 1.8px solid ${({ theme }) => theme.primary};
     justify-content: center;
+    display: flex;
     align-items: center;
-    padding: 0 20px;
-    font-size: 1.5rem;
-    font-weight: 500;
+    height: 70%;
+    border-radius: 20px;
+    color: ${({ theme }) => theme.primary};
     cursor: pointer;
-    :hover {
-        background-color: ${({ theme }) => theme.text_primary};
-        color: ${({ theme }) => theme.white};
-    }
-    @media screen and (max-width: 640px) {
-        font-size: 1.2rem;
+    padding: 0 20px;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.6s ease-in-out;
+        :hover {
+            background: ${({ theme }) => theme.primary};
+            color: ${({ theme }) => theme.white};     
+        }
+    @media screen and (max-width: 768px) { 
+    font-size: 14px;
     }
 `
 
