@@ -11,7 +11,7 @@ export const darkTheme = {
     black:"#000000",
     sand_dollar: '#EBE7D0',
     tangerine: '#D3A550',
-    red: 'D01110',
+    red: '#D01110',
     black_two: '#121110'
 }
 
