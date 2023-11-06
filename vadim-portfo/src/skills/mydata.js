@@ -7,7 +7,7 @@ export const mydata = {
         "UI/UX Designer",
     ],
     description: "I'm Vadim and I'm an aspiring bodybuilder, avid reader, speed junkie and a full stack developer. I'm passionate about building software that solves problems and helps people. I'm currently looking for a full time position as a Full Stack Developer.",
-    github: " https://github.com/blorty1",
+    github: " https://github.com/blorty",
     resume : "https://docs.google.com/document/d/1WVYorwm1TBa7gwrrXrcQc4zONaR2u9nPpCNZq_11NS0/edit?usp=sharing",
     LinkedIn : "https://www.linkedin.com/in/vadim-lozinschii/",
     Instagram : "https://www.instagram.com/vadimverynice/",

@@ -1,6 +1,6 @@
 import { Link as LinkR } from 'react-router-dom';
 import styled from 'styled-components';
-import _default from '../../themes/default';
+import _default from '../../Themes';
 
 export const NavStyled = styled.div`
     background-color: ${({theme}) => theme.card_light};
@@ -16,7 +16,7 @@ export const NavStyled = styled.div`
         trastion: 0.8s all ease;
     }
 `;
-export const NavbarContainer = styled.div`
+export const NavContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -108,6 +108,7 @@ export const NavbarContainer = styled.div`
     }
     `;
 
+    /// Mobile Nav ///
 
     export const MobileIcon = styled.div`
     display: none;
