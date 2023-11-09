@@ -1,13 +1,20 @@
+import React from 'react';
+import { useState } from 'react';
 import './App.css';
 import styled, { ThemeProvider } from 'styled-components';
-import { darkTheme } from './Themes'
+import { darkTheme, lightTheme } from './Themes'
 import Navbar from './components/Nav/NavRender';
 import Hero from './components/Hero/Hero';
 import Skills from './components/Skills/Skills';
 import Education from './components/Education/Education';
+import Experience from './components/Experience/Experience';
+import Projects from './components/Projects/Projects';
+import Contact from './components/Contact/Contact';
+import Footer from './components/Footer/Footer';
+import ProjectDetails from './components/Projects/ProjectDetails';
 
 const Container = styled.div`
-  background-color: ${({ theme }) => theme.bg};
+  background-5: ${({ theme }) => theme.bg};
   width: 100%;
   overflow-x: hidden;
 `
@@ -15,15 +22,20 @@ const Container = styled.div`
 const Wrapper = styled.div`
   background: linear-gradient(
     to bottom right,
-    #FF9E80,  
-    #D87F67   
+    ${({ theme }) => theme.tangerine}, 
+    #E89C78
   );
   flex-grow: 1; 
 `
 
+
+
 function App() {
+  const [darkMode, setDarkMode] = useState(true);
+  const [openModal, setOpenModal] = useState({ state: false, project: null });
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
 
       <Navbar />
 
@@ -33,8 +45,21 @@ function App() {
 
         <Wrapper>
           <Skills />
-          <Education />
+          <Experience />
         </Wrapper>
+
+        <Projects openModal={openModal} setOpenModal={setOpenModal} />
+
+        <Wrapper>
+          <Education />
+          <Contact />
+        </Wrapper>
+
+        <Footer />
+
+        {openModal.state && (
+          <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
+        )}
 
       </Container>
 

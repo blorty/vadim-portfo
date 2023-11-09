@@ -151,3 +151,74 @@ export const skills = [
         ],
         },
     ];
+
+
+export const projects = [
+    {
+        title: "SMART",
+        date: "2023",
+        description: "Overview SMART is a holistic application designed to assist users in managing their mental well-being. Through a variety of stress-relief activities and relaxation techniques, users can find solace, set reminders, follow along with guided sessions, and monitor their progress over time.",
+        image: "https://i.imgur.com/2Z3Q1ZM.png",
+        tags: ["React", "JavaScript" , "Python", "PostgreSQL", "TailwindCSS", "Formik "],
+        category: "Web App",
+        github: "https://github.com/blorty/SMART"
+    },
+    {
+        title: "Counter Strike Strategy Builder",
+        date: "2023",
+        description: "Overview This application is designed to assist users in creating and sharing strategies for the popular first-person shooter Counter Strike: Global Offensive. Users can create an account, create strategies, and share them with other users. Users can also view strategies created by other users and save them to their profile.",
+        image: "https://i.imgur.com/2Z3Q1ZM.png",
+        tags: ["React", "JavaScript" , "Python", "PostgreSQL", "TailwindCSS", "Formik "],
+        category: "Web App",
+        github: "https://github.com/blorty/CSSB"
+    },
+    {
+        title: "WorkWander",
+        date: "2023",
+        description: "Overview WorkWander is a web application that allows users to search for jobs and save them to their profile. Users can also create a profile and upload a resume to apply for jobs directly through the application.",
+        image: "https://i.imgur.com/2Z3Q1ZM.png",
+        tags: ["React", "JavaScript" , "Python", "PostgreSQL", "TailwindCSS"],
+        category: "Web App",
+        github: "https://github.com/blorty/Project-WorkWander"
+    },
+    {
+        title: "PlurPortal",
+        date: "2023",
+        description: "Overview PlurPortal is a web application that allows users to search for jobs and save them to their profile. Users can also create a profile and upload a resume to apply for jobs directly through the application.",
+        image: "https://i.imgur.com/2Z3Q1ZM.png",
+        tags: ["React", "JavaScript" , "Python", "PostgreSQL", "TailwindCSS"],
+        category: "Web App",
+        github: "https://github.com/blorty/PlurPortal"
+    },
+
+]
+
+
+export const education = [
+    {
+        school: "Flatiron School",
+        subtitle: "Software Engineering Bootcamp",
+        desc: "Software Engineering Bootcamp with a focus on Full Stack Web Development",
+        date: "2023",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Flatiron_School_logo.svg/1200px-Flatiron_School_logo.svg.png",
+    },
+    {
+        school: "Tacoma Community College",
+        subtitle: "Associate of Science in Anthropology",
+        desc: "Biological Sciences",
+        date: "2020",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Tacoma_Community_College_logo.svg/1200px-Tacoma_Community_College_logo.svg.png",    
+    },
+];
+
+
+export const experiencedata = [
+    {
+        imgage: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Flatiron_School_logo.svg/1200px-Flatiron_School_logo.svg.png",
+        role: "Software Engineering & Fullstack Development Student",
+        company: "Flatiron School",
+        date: "Feb 2023 - June 2023",
+        desc: "Software Engineering Bootcamp with a focus on Full Stack Web Development",
+        skills: ["React", "JavaScript" ,"Python", "PostgreSQL", "CSS", "HTML", "Node.js", "Express.js", "TailwindCSS", "Formik "],
+    }
+]

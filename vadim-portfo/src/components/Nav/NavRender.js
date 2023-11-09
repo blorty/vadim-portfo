@@ -2,7 +2,7 @@ import React from 'react'
 import { ButtonContainer, GitHubButton, MobileIcon, MobileLink, MobileMenu, NavContainer, NavItems, NavLink, NavLogo, Span, NavStyled } from './NavStyled'
 import { DiCssdeck } from 'react-icons/di';
 import { FaBars } from 'react-icons/fa';
-import { mydata } from '../../skills/mydata';
+import { mydata } from '../../MyData/mydata';
 import { useTheme } from 'styled-components';
 
 const NavRender = () => {
@@ -29,7 +29,7 @@ const NavRender = () => {
             <NavLink href='#education'>Education</NavLink>
             </NavItems>
             <ButtonContainer>
-            <GitHubButton href={mydata.github} target="_blank">Github Profile</GitHubButton>
+            <GitHubButton href={mydata.github} target="_blank">My Github</GitHubButton>
             </ButtonContainer>
             {
             isOpen &&

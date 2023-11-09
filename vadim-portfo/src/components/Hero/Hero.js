@@ -1,16 +1,16 @@
 import React from 'react'
-// import HeroBgAnimation from '../HeroBgAnimation'
+import HeroAnimation from '../HeroAnimation/HeroAnimation'
 import { HeroContainer, HeroBg, HeroLeftContainer, Img, HeroRightContainer, HeroInnerContainer, TextLoop, Title, Span, SubTitle, SocialMediaIcons, SocialMediaIcon, ResumeButton } from './HeroStyled'
-// import HeroImg from '../../images/HeroImage.jpg'
+import Headshot from '../../images/hs.jpg'
 import Typewriter from 'typewriter-effect';
-import { mydata } from '../../skills/mydata';
+import { mydata } from '../../MyData/mydata';
 
 const HeroSection = () => {
     return (
         <div id="about">
             <HeroContainer>
                 <HeroBg>
-                    {/* <HeroBgAnimation /> */}
+                    <HeroAnimation />
                 </HeroBg>
                 <HeroInnerContainer >
                     <HeroLeftContainer id="Left">
@@ -28,12 +28,12 @@ const HeroSection = () => {
                             </Span>
                         </TextLoop>
                         <SubTitle>{mydata.description}</SubTitle>
-                        <ResumeButton href={mydata.resume} target='display'>Check Resume</ResumeButton>
+                        <ResumeButton href={mydata.resume} target='display'>View My Resume</ResumeButton>
                     </HeroLeftContainer>
 
                     <HeroRightContainer id="Right">
 
-                        {/* <Img src={HeroImg} alt="hero-image" /> */}
+                        <Img src={Headshot} alt="hero-image" />
                     </HeroRightContainer>
                 </HeroInnerContainer>
 
