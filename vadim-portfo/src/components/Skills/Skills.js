@@ -54,30 +54,35 @@ const SkillsContainer = styled.div`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; /* Center the items */
+    gap: 30px; /* Maintain a gap between the items */
     margin-top: 20px;
-    gap: 30px;
-    justify-content: center;
 `
 
 const Skill = styled.div`
-    width: 100%;
-    max-width: 500px;
+    flex: 0 1 calc(33.333% - 40px); // Keep the flex-basis as before
+    display: flex;
+    flex-direction: column; // Stack child elements vertically
+    justify-content: flex-start; // Align children to the start of the main-axis
+    align-items: center; // Center items along the cross-axis
     background: ${({ theme }) => theme.card};
     border: 0.1px solid #854CE6;
     box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
     border-radius: 16px;
     padding: 18px 36px;
+
+    @media (max-width: 1024px) {
+        flex: 0 1 calc(50% - 40px); /* Two items per row for smaller screens */
+    }
+
     @media (max-width: 768px) {
-        max-width: 400px;
-        padding: 10px 36px;
-        }
-        @media (max-width: 500px) {
-            max-width: 330px;
-            padding: 10px 36px;
-        }
+        flex: 0 1 100%; /* Full width for mobile */
+    }
 `
 
+
 const SkillTitle = styled.h2`
+    align-self: flex-center; 
     font-size: 28px;
     font-weight: 600;
     color: ${({ theme }) => theme.text_secondary};

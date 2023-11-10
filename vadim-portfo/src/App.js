@@ -14,7 +14,7 @@ import Footer from './components/Footer/Footer';
 import ProjectDetails from './components/Projects/ProjectDetails';
 
 const Container = styled.div`
-  background-5: ${({ theme }) => theme.bg};
+  background: ${({ theme }) => theme.bg};
   width: 100%;
   overflow-x: hidden;
 `

@@ -96,8 +96,8 @@ function Footer() {
             <NavLink href="#education">Education</NavLink>
             </Nav>
             <SocialMediaIcons>
-            <SocialMediaIcon href={mydata.linkedin} target="display"><LinkedInIcon /></SocialMediaIcon>
-            <SocialMediaIcon href={mydata.insta} target="display"><InstagramIcon /></SocialMediaIcon>
+            <SocialMediaIcon href={mydata.LinkedIn} target="display"><LinkedInIcon /></SocialMediaIcon>
+            <SocialMediaIcon href={mydata.Instagram} target="display"><InstagramIcon /></SocialMediaIcon>
             </SocialMediaIcons>
             <Copyright>
             &copy; 2023 Vadim Lozinschii. All rights reserved.
