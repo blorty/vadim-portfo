@@ -6,7 +6,7 @@ export const mydata = {
         "Webflow Developer",
         "UI/UX Designer",
     ],
-    description: "I'm Vadim and I'm an aspiring bodybuilder, avid reader, speed junkie and a full stack developer. I'm passionate about building software that solves problems and helps people. I'm currently looking for a full time position as a Full Stack Developer.",
+    description: "I'm an aspiring bodybuilder and a full stack developer. My passion is building software that solves problems and helps people. I'm currently looking for a full time position as a Full Stack Developer.",
     github: " https://github.com/blorty",
     resume : "https://docs.google.com/document/d/1WVYorwm1TBa7gwrrXrcQc4zONaR2u9nPpCNZq_11NS0/edit?usp=sharing",
     LinkedIn : "https://www.linkedin.com/in/vadim-lozinschii/",
@@ -29,7 +29,12 @@ export const skills = [
             image:
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png",
             level: "90",
-                },
+            },
+            {
+            name: "TypeScript",
+            image:
+                "https://raw.githubusercontent.com/remojansen/logo.ts/master/ts.png",
+            },
             {
             name: "Redux",
             image:
@@ -40,6 +45,12 @@ export const skills = [
             name: "Next Js",
             image:
                 "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACTklEQVR4Ab1XAaQqURB9DyohSykREpRIQSAlBCoECKUFCSRCBBEAaSEABQEoCIEASCwAUICALgCo83do0//9v819XX845O7VnDkzOzP7JWGaBd3C3IJpQVjAHeJ+Rs9a97vKLGrBsB1KgMhEP3FMUUwt4ENMfxr1yQIU4SSjRkbeOZtERmHk6pXQVDlnkHh9S+QLTm1hkiz4n/gzFQuny9FoFLquE+i34x+n02k0m00UCoV3BIzn3MMJrVYLtp1OJ0cS/X4f5/MZhmG8IyDsWtDfEaDIn2232/3zbrvdxuFwwGg04qRBt+VnETBNE0IIkE2n07/erdfrWK/X6Ha73Hb9ZXII3G43ivy3dNRqtZe7lUoFs9mM6oBDwCQCgquALT1FT3a5XF7qIZ/PYzgcolqtcggIIgBZAgRKB6lCRalp2uM8k8mAVMrlchwC+DEBipycE4n5fP44j8ViKJVKSCaTbAJCpgaez4vFIsjoWa/XA50FAgEkEgmEw2F2CkxZBZ5Br5tt1ITcbjd8Ph88Hg+7CBefECCsVitS4aVJcV9D/VMCVITk/Hq9YrPZyBBo2a1YMGvAcQYcj0cCtWMugcdYNhjDiBrP25mx3++x3W6RzWZZ8isfxzQLlsslJpMJpYY5jhkqcOH1ejEYDDAej9FoNOByuZxGsfqVzC7KTqcDSkkqleKsZOqX0mAwiHK5DGrJfr+fs5SqX8sjkQji8ThCoRC+v78Za7l6JagrUh3YkUuZpqgwDaecc9VYSDoV5Fg+at7n+eLN57kuE/EvzHr/Kvs31aYAAAAASUVORK5CYII=",
+            level: "70",
+            },
+            {
+            name: "Vue Js",
+            image:
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png",
             level: "70",
             },
             {
@@ -189,7 +200,7 @@ export const projects = [
         title: "SMART",
         date: "2023",
         description: "SMART is a holistic application designed to assist users in managing their mental well-being. Through a variety of stress-relief activities and relaxation techniques, users can find solace, set reminders, follow along with guided sessions, and monitor their progress over time.",
-        image: "https://i.imgur.com/2Z3Q1ZM.png",
+        image: "../images/SMART.png",
         tags: ["React", "JavaScript" , "Python", "PostgreSQL", "TailwindCSS", "Formik "],
         category: "Web App",
         github: "https://github.com/blorty/SMART"
@@ -198,7 +209,7 @@ export const projects = [
         title: "Counter Strike Strategy Builder",
         date: "2023",
         description: "CSSB is a diverse application designed to assist users in creating and sharing strategies for the popular game Counter Strike: Global Offensive. Users can create accounts, strategies and teams, with the ability of inviting other users, kicking and disbanding teams, armed with a fully functional notification system.",
-        image: "https://i.imgur.com/2Z3Q1ZM.png",
+        image: "../images/CSSB.png",
         tags: ["React", "JavaScript" , "Python", "PostgreSQL", "TailwindCSS", "Formik "],
         category: "Web App",
         github: "https://github.com/blorty/CSSB"
@@ -207,16 +218,16 @@ export const projects = [
         title: "WorkWander",
         date: "2023",
         description: "WorkWander is an app for employers to post jobs and for job seekers to find jobs. Employers can create an account, post jobs, and view applicants. Job seekers can create an account, view jobs, and apply to jobs.",
-        image: "https://i.imgur.com/2Z3Q1ZM.png",
+        image: "../images/WorkWander.png",
         tags: ["React", "JavaScript" , "Python", "SQLAlchemy", "Flask", "TailwindCSS"],
         category: "Web App",
-        github: "https://github.com/blorty/Project-WorkWander"
+        github: "../images/WorkWander.png"
     },
     {
         title: "PlurPortal",
         date: "2023",
         description: "PlurPortal was created to assist users in easy access to festival information. Users can create an account, view festivals, and save them to their profile. Users can purchase tickets to festivals and view their saved festivals in their cart.",
-        image: "https://i.imgur.com/2Z3Q1ZM.png",
+        image: "../images/PlurPortal.png",
         tags: ["Python", "PostgreSQL", "SQLAlchemy", "Flask"],
         category: "Web App",
         github: "https://github.com/blorty/PlurPortal"
@@ -225,7 +236,7 @@ export const projects = [
         title: "BASTALOG",
         date: "2023",
         description: "​Batalog is an app created to assist Batman fans and lovers everywhere in their appreciation of Batman.",
-        image: "https://i.imgur.com/2Z3Q1ZM.png",
+        image: "../images/BATALOG.png",
         tags: ["Python", "PostgreSQL", "SQLAlchemy", "Flask"],
         category: "Web App",
         github: "https://github.com/blorty/BATALOG-PROJECT"

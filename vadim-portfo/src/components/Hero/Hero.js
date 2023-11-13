@@ -1,6 +1,6 @@
 import React from 'react'
 import HeroAnimation from '../HeroAnimation/HeroAnimation'
-import { HeroContainer, HeroBg, HeroLeftContainer, Img, HeroRightContainer, HeroInnerContainer, TextLoop, Title, Span, SubTitle, SocialMediaIcons, SocialMediaIcon, ResumeButton } from './HeroStyled'
+import { HeroContainer, HeroBg, HeroLeftContainer, Img, HeroRightContainer, HeroInnerContainer, TextLoop, Title, Span, SubTitle, ResumeButton } from './HeroStyled'
 import Headshot from '../../images/hs.jpg'
 import Typewriter from 'typewriter-effect';
 import { mydata } from '../../MyData/mydata';
@@ -28,7 +28,14 @@ const HeroSection = () => {
                             </Span>
                         </TextLoop>
                         <SubTitle>{mydata.description}</SubTitle>
-                        <ResumeButton href={mydata.resume} target='display'>View My Resume</ResumeButton>
+                        <ResumeButton
+                            href={mydata.resume}
+                            target='display'
+                            whileHover={{ scale: 1.05, boxShadow: "0 4px 20px #C197D2" }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            View My Resume
+                        </ResumeButton>
                     </HeroLeftContainer>
 
                     <HeroRightContainer id="Right">

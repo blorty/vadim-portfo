@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import _default from "../../Themes";
+import { motion } from "framer-motion";
 
 export const HeroContainer = styled.div`
     background: ${({ theme }) => theme.card_light};
@@ -10,7 +10,7 @@ export const HeroContainer = styled.div`
     @media (max-width: 960px) {
         padding: 66px 16px;
     }
-    @media (max-width: 640) {
+    @media (max-width: 640px) {
         padding: 32px 16px;
     }
     z-index: 1;
@@ -166,35 +166,23 @@ export const HeroContainer = styled.div`
     }
 `;
 
-export const ResumeButton = styled.a`
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
+export const ResumeButton = styled(motion.a)`
+    appearance: none; // Removing browser-specific styling
     text-decoration: none;
-    width: 95%;
+    width: auto; // Adjust width to content size
     max-width: 300px;
     text-align: center;
-    padding: 16px 0;
-    color:${({ theme }) => theme.white};
-    border-radius: 20px;
+    padding: 10px 20px; // Reduced padding
+    color: ${({ theme }) => theme.white};
+    border-radius: 25px; // Slightly increased border-radius for a smoother look
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px; // Slightly smaller font size
     font-weight: 600;
-    transition: all 0.2s ease-in-out !important;
-    background: hsla(271, 100%, 50%, 1);
-    background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    background: -moz-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    box-shadow:  20px 20px 60px #1F2634,
-    -20px -20px 60px #1F2634;
-    &:hover {
-        transform: scale(1.05);
-    transition: all 0.4s ease-in-out;
-    box-shadow:  20px 20px 60px #1F2634,
-    filter: brightness(1);
-    }    
-    @media (max-width: 640px) {
-        padding: 12px 0;
-        font-size: 18px;
-    } 
+    background: linear-gradient(225deg, #613659 0%, #613659 100%);
+    box-shadow: 0 2px 20px #C197D2; // Softer shadow
+    display: inline-block; // Align to text size
+    margin: 0; // Remove any default margin
+    border: none; // Remove border
 `;
+
+

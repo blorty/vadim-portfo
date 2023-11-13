@@ -20,11 +20,6 @@ const Container = styled.div`
 `
 
 const Wrapper = styled.div`
-  background: linear-gradient(
-    to bottom right,
-    ${({ theme }) => theme.tangerine}, 
-    #E89C78
-  );
   flex-grow: 1; 
 `
 
@@ -36,11 +31,8 @@ function App() {
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-
       <Navbar />
-
       <Container>
-
         <Hero />
 
         <Wrapper>
@@ -56,13 +48,11 @@ function App() {
         </Wrapper>
 
         <Footer />
-
         {openModal.state && (
           <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
         )}
-
+        
       </Container>
-
     </ThemeProvider>
   )
 }
