@@ -20,4 +20,6 @@ export const darkTheme = {
     button:"#D3B1C2",
     white:"#FFFFFF",
     black:"#000000",
+    success:"#2ecc71",
+    error:"#e74c3c",
 }

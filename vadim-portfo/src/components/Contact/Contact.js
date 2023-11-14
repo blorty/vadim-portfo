@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import { useRef } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+import styled, { keyframes } from 'styled-components';
 import emailjs from '@emailjs/browser';
 import { Snackbar } from '@mui/material';
 
@@ -103,66 +103,153 @@ const ContactInputMessage = styled.textarea`
   }
 `
 
-const ContactButton = styled.input`
+const gradientAnimation = keyframes`
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+`;
+
+const ContactButton = styled(motion.input)`
   width: 100%;
   text-decoration: none;
   text-align: center;
-  background: hsla(271, 100%, 50%, 1);
-  background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-  background: -moz-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-  background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
   padding: 13px 16px;
   margin-top: 2px;
   border-radius: 12px;
   border: none;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.white};
   font-size: 18px;
   font-weight: 600;
-`
+  background: linear-gradient(225deg, ${({ theme }) => theme.primary} 0%, ${({ theme }) => theme.button} 100%);
+  background-size: 200% 200%; // Important for the gradient to animate over a larger area
+  animation: ${gradientAnimation} 5s ease infinite; // Apply the animation
+
+  transition: transform 0.3s ease; // Smooth transition for scaling
+
+  :hover {
+    transform: scale(1.05); // Scale up the button slightly on hover
+    cursor: pointer;
+  }
+`;
 
 
+
+const formVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      when: 'beforeChildren',
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { 
+    y: 0, 
+    opacity: 1,
+    transition: { 
+      type: 'spring', 
+      stiffness: 50 
+    }
+  }
+};
+
+const MotionContactInput = motion(ContactInput);
+const MotionContactInputMessage = motion(ContactInputMessage);
+const MotionContactButton = motion(ContactButton);
 
 const Contact = () => {
-
-  //hooks
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [error, setError] = useState(false); // State for error message
   const form = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_tox7kqs', 'template_nv7k7mj', form.current, 'SybVGsYS52j2TfLbi')
+
+    const fromEmail = form.current['from_email'].value;
+    const fromName = form.current['from_name'].value;
+    const subject = form.current['subject'].value;
+    const message = form.current['message'].value;
+
+    // Check if any field is empty
+    if (!fromEmail || !fromName || !subject || !message) {
+      setError(true); // Set error state to true
+      return; // Stop the form submission
+    }
+
+    // If all fields are filled, send the email
+    emailjs.sendForm('service_v7399gj', 'template_uufv7jw', form.current, 'F3ZacXwf_Mo6GQlq5')
       .then((result) => {
         setOpen(true);
         form.current.reset();
+        setError(false); // Reset error state after successful submission
       }, (error) => {
         console.log(error.text);
       });
   }
-
-
 
   return (
     <Container>
         <Wrapper>
             <Title>Contact</Title>
             <Desc>Feel free to reach out to me for any questions or opportunities!</Desc>
-            <ContactForm ref={form} onSubmit={handleSubmit}>
-            <ContactInput placeholder="Your Email" name="from_email" />
-            <ContactInput placeholder="Your Name" name="from_name" />
-            <ContactInput placeholder="Subject" name="subject" />
-            <ContactInputMessage placeholder="Message" rows="4" name="message" />
-            <ContactButton type="submit" value="Send" />
+            <ContactForm 
+              ref={form} 
+              onSubmit={handleSubmit}
+              as={motion.form}
+              variants={formVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <MotionContactInput 
+                placeholder="Your Email" 
+                name="from_email" 
+                variants={itemVariants} 
+              />
+              <MotionContactInput 
+                placeholder="Your Name" 
+                name="from_name" 
+                variants={itemVariants}
+              />
+              <MotionContactInput 
+                placeholder="Subject" 
+                name="subject" 
+                variants={itemVariants} 
+              />
+              <MotionContactInputMessage 
+                placeholder="Message" 
+                rows="4" 
+                name="message" 
+                variants={itemVariants} 
+              />
+              <MotionContactButton 
+                type="submit" 
+                value="Send" 
+                whileHover={{ 
+                  background: `linear-gradient(45deg, ${({ theme }) => theme.button} 0%, ${({ theme }) => theme.primary} 100%)` 
+                }}
+              />
             </ContactForm>
+            {error && <div style={{ color: '#963939', marginTop: '10px' }}>Please fill in all fields.</div>}
             <Snackbar
-            open={open}
-            autoHideDuration={6000}
-            onClose={()=>setOpen(false)}
-            message="Email sent successfully!"
-            severity="success"
+              open={open}
+              autoHideDuration={6000}
+              onClose={() => setOpen(false)}
+              message="Email sent successfully!"
+              severity="success"
             />
         </Wrapper>
-        </Container>
-    )
+      </Container>
+  )
 }
 
-export default Contact
+export default Contact;

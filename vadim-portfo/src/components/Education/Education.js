@@ -1,5 +1,6 @@
 
 import React from 'react'
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -75,18 +76,32 @@ const TimelineSection = styled.div`
     }
 `;
 
+const MotionTimelineItem = motion(TimelineItem);
 
+const timelineItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { type: "spring", stiffness: 50 }
+    }
+};
 
 const Education = () => {
     return (
         <Container id="education">
             <Wrapper>
                 <Title>Education</Title>
-
                 <TimelineSection>
                     <Timeline>
-                        {education.map((education,index) => (
-                            <TimelineItem >
+                        {education.map((education, index) => (
+                            <MotionTimelineItem
+                                key={index}
+                                variants={timelineItemVariants}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                            >
                                 <TimelineContent sx={{ py: '12px', px: 2 }}>
                                     <EduCard education={education}/>
                                 </TimelineContent>
@@ -94,14 +109,13 @@ const Education = () => {
                                     <TimelineDot variant="outlined" color="secondary" />
                                     {index !== education.length - 1 && <TimelineConnector style={{ background: '#854CE6' }} />}
                                 </TimelineSeparator>
-                            </TimelineItem>
+                            </MotionTimelineItem>
                         ))}
                     </Timeline>
-
                 </TimelineSection>
             </Wrapper>
         </Container>
-    )
-}
+    );
+};
 
-export default Education
+export default Education;

@@ -1,10 +1,13 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
     background: linear-gradient(343.07deg, rgba(132, 59, 206, 0.06) 5.71%, rgba(132, 59, 206, 0) 64.83%);
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    gap: 12px;
     justify-content: center;
     position: relative;
     z-index: 1;

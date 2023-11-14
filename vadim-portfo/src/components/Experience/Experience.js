@@ -1,5 +1,6 @@
 
 import React from 'react'
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -72,7 +73,18 @@ const TimelineSection = styled.div`
     gap: 12px;
 `;
 
-
+const timelineItemVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            type: "spring",
+            stiffness: 50,
+            duration: 0.5
+        }
+    }
+};
 
 const Experience = () => {
     return (
@@ -81,8 +93,14 @@ const Experience = () => {
                 <Title>Experience</Title>
                 <TimelineSection>
                     <Timeline>
-                        {experiencedata.map((experience,index) => (
-                            <TimelineItem>
+                        {experiencedata.map((experience, index) => (
+                            <motion.TimelineItem
+                                key={index}
+                                variants={timelineItemVariants}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                            >
                                 <TimelineSeparator>
                                     <TimelineDot variant="outlined" color="secondary" />
                                     {index !== experiencedata.length - 1 && <TimelineConnector style={{ background: '#854CE6' }} />}
@@ -90,14 +108,13 @@ const Experience = () => {
                                 <TimelineContent sx={{ py: '12px', px: 2 }}>
                                     <ExperienceCard experience={experience}/>
                                 </TimelineContent>
-                            </TimelineItem>
+                            </motion.TimelineItem>
                         ))}
                     </Timeline>
-
                 </TimelineSection>
             </Wrapper>
         </Container>
-    )
-}
+    );
+};
 
 export default Experience

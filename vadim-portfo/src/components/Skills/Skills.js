@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 import { skills } from '../../MyData/mydata'
 
 const Container = styled.div`
@@ -59,7 +60,7 @@ const SkillsContainer = styled.div`
     margin-top: 20px;
 `
 
-const Skill = styled.div`
+const Skill = styled(motion.div)`
     flex: 0 1 calc(33.333% - 40px); // Keep the flex-basis as before
     display: flex;
     flex-direction: column; // Stack child elements vertically
@@ -98,7 +99,7 @@ const SkillList = styled.div`
     margin-bottom: 20px;
 `
 
-const SkillItem = styled.div`
+const SkillItem = styled(motion.div)`
     font-size: 16px;
     font-weight: 400;
     color: ${({ theme }) => theme.text_primary + 80};
@@ -124,33 +125,57 @@ const SkillImage = styled.img`
     height: 24px;
 `
 
+const skillVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { type: "spring", stiffness: 50, delayChildren: 0.3, staggerChildren: 0.1 }
+    }
+};
+
+const skillItemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { 
+        opacity: 1, 
+        y: 0,
+        transition: { type: "spring", stiffness: 50 }
+    }
+};
 
 const Skills = () => {
     return (
         <Container id="skills">
-        <Wrapper>
-            <Title>Skills</Title>
-            <Desc>
-            </Desc>
-            <SkillsContainer>
-            {skills.map((skill) => (
-                <Skill>
-                <SkillTitle>{skill.title}</SkillTitle>
-                <SkillList>
-                    {skill.skills.map((item) => (
-                    <SkillItem>
-                        <SkillImage src={item.image}/>
-                        {item.name}
-                    </SkillItem>
+            <Wrapper>
+                <Title>Skills</Title>
+                <Desc></Desc>
+                <SkillsContainer>
+                    {skills.map((skill, index) => (
+                        <Skill
+                            key={index}
+                            variants={skillVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                        >
+                            <SkillTitle>{skill.title}</SkillTitle>
+                            <SkillList>
+                                {skill.skills.map((item, itemIndex) => (
+                                    <SkillItem 
+                                        key={itemIndex}
+                                        variants={skillItemVariants}
+                                    >
+                                        <SkillImage src={item.image}/>
+                                        {item.name}
+                                    </SkillItem>
+                                ))}
+                            </SkillList>
+                        </Skill>
                     ))}
-                </SkillList>
-                </Skill>
-            ))}
-
-            </SkillsContainer>
-        </Wrapper>
+                </SkillsContainer>
+            </Wrapper>
         </Container>
-    )
-}
+    );
+};
 
-export default Skills
+export default Skills;
