@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const HeroContainer = styled.div`
+export const HeroContainer = styled(motion.div)`
     background: ${({ theme }) => theme.card_light};
     display: flex;
     justify-content: center;

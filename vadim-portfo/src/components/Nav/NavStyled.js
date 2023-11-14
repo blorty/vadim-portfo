@@ -1,5 +1,6 @@
 import { Link as LinkR } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const NavStyled = styled.div`
     background-color: ${({theme}) => theme.card_light};
@@ -28,11 +29,12 @@ export const NavContainer = styled.div`
 
     export const NavLogo = styled(LinkR)`
         width: 80%;    
-        padding: 0 6px;
+        padding-top: 20px;
         display: flex;
         justify-content: start;
         align-items: center;
         text-decoration: none;
+        filter: invert(100%);
         @media (max-width: 640px) {
         padding: 0 0px;
     }
@@ -44,7 +46,7 @@ export const NavContainer = styled.div`
         font-size: 18px;
     `;
 
-    export const NavItems = styled.ul`
+    export const NavItems = styled(motion.ul)`
         width: 100%;
         display: flex;
         align-items: center;
@@ -58,7 +60,7 @@ export const NavContainer = styled.div`
         }
     `;
 
-export const NavLink = styled.a`
+export const NavLink = styled(motion.a)`
     color: ${({ theme }) => theme.text_primary};
     display: flex;
     align-items: center;
@@ -125,7 +127,7 @@ export const NavLink = styled.a`
     }
     `
 
-    export const MobileMenu = styled.div`
+    export const MobileMenu = styled(motion.div)`
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -142,7 +144,6 @@ export const NavLink = styled.a`
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
         opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
         z-index: ${({ isOpen }) => (isOpen ? '1000' : '-1000')};
-
     `
 
     export const MobileMenuItems = styled.ul`
