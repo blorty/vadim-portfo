@@ -1,3 +1,9 @@
+import smartImage from "../images/logo.png"
+import cssbImage from "../images/cssb.png"
+import workWanderImage from "../images/WorkWanderer2.png"
+import plurPortalImage from "../images/plur.jpg"
+import batalogImage from "../images/batalog.jpg"
+
 export const mydata = {
     name: "Vadim Lozinschii",
     roles: [
@@ -200,8 +206,8 @@ export const projects = [
         title: "SMART",
         date: "2023",
         description: "SMART is a holistic application designed to assist users in managing their mental well-being. Through a variety of stress-relief activities and relaxation techniques, users can find solace, set reminders, follow along with guided sessions, and monitor their progress over time.",
-        image: "../images/SMART.png",
-        tags: ["React", "JavaScript" , "Python", "PostgreSQL", "TailwindCSS", "Formik "],
+        image: smartImage,
+        tags: ["React", "JavaScript" , "Python", "PostgreSQL", "TailwindCSS", "Formik", "Framer Motion"],
         category: "Web App",
         github: "https://github.com/blorty/SMART"
     },
@@ -209,7 +215,7 @@ export const projects = [
         title: "Counter Strike Strategy Builder",
         date: "2023",
         description: "CSSB is a diverse application designed to assist users in creating and sharing strategies for the popular game Counter Strike: Global Offensive. Users can create accounts, strategies and teams, with the ability of inviting other users, kicking and disbanding teams, armed with a fully functional notification system.",
-        image: "../images/CSSB.png",
+        image: cssbImage,
         tags: ["React", "JavaScript" , "Python", "PostgreSQL", "TailwindCSS", "Formik "],
         category: "Web App",
         github: "https://github.com/blorty/CSSB"
@@ -218,26 +224,26 @@ export const projects = [
         title: "WorkWander",
         date: "2023",
         description: "WorkWander is an app for employers to post jobs and for job seekers to find jobs. Employers can create an account, post jobs, and view applicants. Job seekers can create an account, view jobs, and apply to jobs.",
-        image: "../images/WorkWander.png",
+        image: workWanderImage,
         tags: ["React", "JavaScript" , "Python", "SQLAlchemy", "Flask", "TailwindCSS"],
         category: "Web App",
-        github: "../images/WorkWander.png"
+        github: "https://github.com/blorty/Project-WorkWander"
     },
     {
         title: "PlurPortal",
         date: "2023",
         description: "PlurPortal was created to assist users in easy access to festival information. Users can create an account, view festivals, and save them to their profile. Users can purchase tickets to festivals and view their saved festivals in their cart.",
-        image: "../images/PlurPortal.png",
+        image: plurPortalImage,
         tags: ["Python", "PostgreSQL", "SQLAlchemy", "Flask"],
         category: "Web App",
         github: "https://github.com/blorty/PlurPortal"
     },
     {
-        title: "BASTALOG",
+        title: "BATALOG",
         date: "2023",
         description: "​Batalog is an app created to assist Batman fans and lovers everywhere in their appreciation of Batman.",
-        image: "../images/BATALOG.png",
-        tags: ["Python", "PostgreSQL", "SQLAlchemy", "Flask"],
+        image: batalogImage,
+        tags: ["JavaScript", "React" ],
         category: "Web App",
         github: "https://github.com/blorty/BATALOG-PROJECT"
     }

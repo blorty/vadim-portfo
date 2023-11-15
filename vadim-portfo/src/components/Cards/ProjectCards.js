@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 
 const Button = styled.button`
-    display: none;
-    width: 100%;
+    opacity: 0;
+    width: calc(100% - 20px); // Subtracting the padding from the width
     padding: 10px;
     background-color: ${({ theme }) => theme.white};
     color: ${({ theme }) => theme.text_black};
@@ -13,8 +13,13 @@ const Button = styled.button`
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: all 0.8s ease-in-out;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    position: absolute; // Position the button absolutely within the Card
+    bottom: 20px; // Position from the bottom of the Card
+    left: 50%; // Start at the horizontal center
+    transform: translateX(-50%) translateY(20px); // Center it and move it down
 `
+
 const Card = styled.div`
     width: 330px;
     height: 490px;
@@ -28,15 +33,18 @@ const Card = styled.div`
     flex-direction: column;
     gap: 14px;
     transition: all 0.5s ease-in-out;
+    position: relative; // Needed for absolute positioning of the Button
     &:hover {
         transform: translateY(-10px);
         box-shadow: 0 0 50px 4px rgba(0,0,0,0.6);
         filter: brightness(1.1);
     }
     &:hover ${Button} {
-        display: block;
+        opacity: 1; // Make the button visible
+        transform: translateX(-50%) translateY(0); // Move the button up into full view
     }
 `
+
 
 const Image = styled.img`
     width: 100%;
