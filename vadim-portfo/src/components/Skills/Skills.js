@@ -78,6 +78,8 @@ const Skill = styled(motion.div)`
 
     @media (max-width: 768px) {
         flex: 0 1 100%; /* Full width for mobile */
+        margin-left: 15px;
+        margin-right: 15px;
     }
 `
 

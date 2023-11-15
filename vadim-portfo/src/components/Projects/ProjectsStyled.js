@@ -89,7 +89,7 @@ export const Divider = styled.div`
 `
 
 
-export const CardContainer = styled.div`
+export const CardContainer = styled(motion.div)`
     display: flex;
     justify-content: center;
     align-items: center;

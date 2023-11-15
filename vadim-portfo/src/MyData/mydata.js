@@ -1,7 +1,7 @@
-import smartImage from "../images/logo.png"
+import smartImage from "../images/logo2.png"
 import cssbImage from "../images/cssb.png"
 import workWanderImage from "../images/WorkWanderer2.png"
-import plurPortalImage from "../images/plur.jpg"
+import plurPortalImage from "../images/plur.png"
 import batalogImage from "../images/batalog.jpg"
 
 export const mydata = {

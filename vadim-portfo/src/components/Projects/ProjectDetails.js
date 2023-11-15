@@ -65,11 +65,14 @@ const Desc = styled.div`
 
 const Image = styled.img`
     width: 100%;
-    object-fit: cover;
+    max-height: 400px;
+    object-fit: contain; 
     border-radius: 12px;
     margin-top: 30px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+    background: transparent;
 `;
+
 
 const Tags = styled.div`
     display: flex;
@@ -154,7 +157,6 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
                     <Desc>{project?.description}</Desc>
                     <ButtonGroup>
                         <Button dull href={project?.github} target='new'>View Code</Button>
-                        <Button href={project?.webapp} target='new'>View Live App</Button>
                     </ButtonGroup>
                 </Wrapper>
             </Container>
