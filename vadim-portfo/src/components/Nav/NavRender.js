@@ -1,6 +1,6 @@
 import React from 'react'
 import { AnimatePresence } from 'framer-motion';
-import { ButtonContainer, GitHubButton, MobileIcon, MobileLink, MobileMenu, NavContainer, NavItems, NavLink, NavLogo, Span, NavStyled, MobileGitHubButton } from './NavStyled'
+import { ButtonContainer, GitHubButton, MobileIcon, MobileLink, MobileMenu, NavContainer, NavItems, NavLink, NavLogo, NavStyled, MobileGitHubButton } from './NavStyled'
 import { FaBars } from 'react-icons/fa';
 import { mydata } from '../../MyData/mydata';
 import VLlogo from '../../images/VL2.png';
@@ -34,7 +34,7 @@ import VLlogo from '../../images/VL2.png';
             scale: 1.05,
             transition: {
                 // Shorten the duration for a quicker response
-                duration: 0.01, // Try making this even shorter if needed
+                duration: 0.05, // Try making this even shorter if needed
                 type: "spring",
                 stiffness: 300,
             },
@@ -53,7 +53,7 @@ import VLlogo from '../../images/VL2.png';
                 opacity: 0, 
                 scale: 0.95, 
                 transition: {
-                    staggerChildren: 0.1,
+                    staggerChildren: 0.05,
                     staggerDirection: -1, 
                     when: "afterChildren"
                 }
@@ -62,8 +62,8 @@ import VLlogo from '../../images/VL2.png';
                 opacity: 1, 
                 scale: 1,
                 transition: { 
-                    staggerChildren: 0.1,
-                    delayChildren: 0.1
+                    staggerChildren: 0.05,
+                    delayChildren: 0.05
                 }
             }
         };
@@ -72,28 +72,17 @@ import VLlogo from '../../images/VL2.png';
             closed: { 
                 y: -20, 
                 opacity: 0,
-                transition: { duration: 0.1, ease: "easeInOut" }
+                transition: { duration: 0.01, ease: "easeInOut" }
             },
             open: { 
                 y: 0, 
                 opacity: 1,
-                transition: { duration: 0.1, ease: "easeInOut" }
+                transition: { duration: 0.01, ease: "easeInOut" }
             }
         };        
 
         const NavRender = () => {
             const [isOpen, setIsOpen] = React.useState(false);
-        
-            const renderNavLink = (href, label) => (
-                <NavLink 
-                    href={href} 
-                    variants={navItemVariants} 
-                    whileHover="hover"
-                    onClick={() => setIsOpen(false)}
-                >
-                    {label}
-                </NavLink>
-            );
         
             return (
                 <NavStyled>

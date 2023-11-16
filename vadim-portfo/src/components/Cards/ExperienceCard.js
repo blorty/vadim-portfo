@@ -156,31 +156,28 @@ const ExperienceCard = ({ experience }) => {
                 </Body>
             </Top>
             <Description>
-                {experience?.desc &&
-                    <Span>{experience?.desc}</Span>
-
-                }
-                {experience?.skills &&
+                {experience?.desc && <Span>{experience?.desc}</Span>}
+                {experience?.skills && (
                     <>
                         <br />
                         <Skills>
                             <b>Skills:</b>
                             <ItemWrapper>
                                 {experience?.skills?.map((skill, index) => (
-                                    <Skill>• {skill}</Skill>
+                                    <Skill key={skill + index}>• {skill}</Skill> // Unique key
                                 ))}
                             </ItemWrapper>
                         </Skills>
                     </>
-                }
+                )}
             </Description>
-            {experience.doc &&
-                <a href={experience.doc} target="new">
+            {experience.doc && (
+                <a href={experience.doc} target="_blank" rel="noopener noreferrer">
                     <Document src={experience.doc} />
                 </a>
-            }
+            )}
         </Card>
-    )
-}
+    );
+};
 
-export default ExperienceCard
+export default ExperienceCard;

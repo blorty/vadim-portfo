@@ -196,18 +196,14 @@ export const NavLink = styled(motion.a)`
     justify-content: center;
     padding: 10px 20px;
     border-radius: 25px; // Adjust as needed
-    color: ${({ theme }) => theme.primary};
+    background-color: ${({ theme }) => theme.bg};
+    color: ${({ theme }) => theme.text_primary};
     font-size: 16px; // Adjust as needed
     font-weight: bold;
     text-decoration: none;
     transition: all 0.3s ease;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); // Optional
 
-    &:hover {
-        background: ${({ theme }) => theme.primary};
-        color: ${({ theme }) => theme.white};
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); // Optional
-    }
 `;
 
 
