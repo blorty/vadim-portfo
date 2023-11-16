@@ -1,4 +1,4 @@
-import smartImage from "../images/logo2.png"
+import smartImage from "../images/logo3.png"
 import cssbImage from "../images/cssb.png"
 import workWanderImage from "../images/WorkWanderer2.png"
 import plurPortalImage from "../images/plur.png"

@@ -13,8 +13,12 @@ const navItemVariants = {
         x: 0,
         opacity: 1,
         transition: { type: "spring", stiffness: 50 }
-    }
-};
+        },
+        hover: {
+        scale: 1.1, // Scale up slightly on hover
+        transition: { type: "spring", stiffness: 300, damping: 10 }
+        }
+    };
 
 
 const navListVariants = {
@@ -41,6 +45,25 @@ const mobileMenuVariants = {
     }
 };
 
+const buttonVariants = {
+    hover: {
+        scale: 1.05,
+        transition: {
+            // Shorten the duration for a quicker response
+            duration: 0.01, // Try making this even shorter if needed
+            type: "spring",
+            stiffness: 300,
+        },
+        },
+        tap: {
+        scale: 0.95,
+        transition: {
+            // Shorten the duration for a quicker response
+            duration: 0.05, // Try making this even shorter if needed
+        },
+        },
+    };  
+
 
 const NavRender = () => {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -49,12 +72,9 @@ const NavRender = () => {
     return (
         <NavStyled>
             <NavContainer>
-            <NavLogo to='/'>
-                <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: '20px', cursor: 'pointer' }}>
-                    <img src={VLlogo} alt="VL Logo" style={{ height: '3rem' }} />
-                    <Span></Span>
-                </a>
-            </NavLogo>
+                <NavLogo to='/'>
+                    <img src={VLlogo} alt="VL Logo" style={{ height: '3rem', cursor: 'pointer' }} />
+                </NavLogo>
                 <MobileIcon onClick={() => setIsOpen(!isOpen)}>
                     <FaBars />
                 </MobileIcon>
@@ -63,35 +83,82 @@ const NavRender = () => {
                     initial="hidden"
                     animate="visible"
                 >
-                    <NavLink href="#about" variants={navItemVariants}>About</NavLink>
-                    <NavLink href='#skills' variants={navItemVariants}>Skills</NavLink>
-                    <NavLink href='#experience' variants={navItemVariants}>Experience</NavLink>
-                    <NavLink href='#projects' variants={navItemVariants}>Projects</NavLink>
-                    <NavLink href='#education' variants={navItemVariants}>Education</NavLink>
+                    <NavLink 
+                        href="#about" 
+                        variants={navItemVariants} 
+                        whileHover="hover"
+                    >
+                        About
+                    </NavLink>
+                    <NavLink 
+                        href='#skills' 
+                        variants={navItemVariants} 
+                        whileHover="hover"
+                    >
+                        Skills
+                    </NavLink>
+                    <NavLink 
+                        href='#experience' 
+                        variants={navItemVariants} 
+                        whileHover="hover"
+                    >
+                        Experience
+                    </NavLink>
+                    <NavLink 
+                        href='#projects' 
+                        variants={navItemVariants} 
+                        whileHover="hover"
+                    >
+                        Projects
+                    </NavLink>
+                    <NavLink 
+                        href='#education' 
+                        variants={navItemVariants} 
+                        whileHover="hover"
+                    >
+                        Education
+                    </NavLink>
                 </NavItems>
                 <ButtonContainer>
-                    <GitHubButton href={mydata.github} target="_blank">My Github</GitHubButton>
+                    <GitHubButton
+                        variants={buttonVariants}
+                        whileHover="hover"
+                        whileTap="tap"
+                        href={mydata.github} 
+                        target="_blank">
+                        My Github
+                    </GitHubButton>
                 </ButtonContainer>
                 {isOpen && (
-                <MobileMenu
-                    variants={mobileMenuVariants}
-                    initial="closed"
-                    animate={isOpen ? "open" : "closed"}
-                >
-                    <MobileLink href="#about" onClick={() => setIsOpen(false)}>About</MobileLink>
-                    <MobileLink href='#skills' onClick={() => setIsOpen(false)}>Skills</MobileLink>
-                    <MobileLink href='#experience' onClick={() => setIsOpen(false)}>Experience</MobileLink>
-                    <MobileLink href='#projects' onClick={() => setIsOpen(false)}>Projects</MobileLink>
-                    <MobileLink href='#education' onClick={() => setIsOpen(false)}>Education</MobileLink>
-                    <GitHubButton 
-                        style={{ padding: '10px 16px', background: `${theme.primary}`, color: 'white', width: 'max-content' }} 
-                        href={mydata.github} 
-                        target="_blank"
+                    <MobileMenu
+                        variants={mobileMenuVariants}
+                        initial="closed"
+                        animate={isOpen ? "open" : "closed"}
                     >
-                        Github Profile
-                    </GitHubButton>
-                </MobileMenu>
-            )}
+                        <MobileLink href="#about" onClick={() => setIsOpen(false)}>
+                            About
+                        </MobileLink>
+                        <MobileLink href='#skills' onClick={() => setIsOpen(false)}>
+                            Skills
+                        </MobileLink>
+                        <MobileLink href='#experience' onClick={() => setIsOpen(false)}>
+                            Experience
+                        </MobileLink>
+                        <MobileLink href='#projects' onClick={() => setIsOpen(false)}>
+                            Projects
+                        </MobileLink>
+                        <MobileLink href='#education' onClick={() => setIsOpen(false)}>
+                            Education
+                        </MobileLink>
+                        <GitHubButton 
+                            style={{ padding: '10px 16px', background: theme.primary, color: 'white', width: 'max-content' }} 
+                            href={mydata.github} 
+                            target="_blank"
+                        >
+                            Github Profile
+                        </GitHubButton>
+                    </MobileMenu>
+                )}
             </NavContainer>
         </NavStyled>
     );

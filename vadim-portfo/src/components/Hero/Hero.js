@@ -22,50 +22,92 @@ const heroVariants = {
     }
 };
 
-const HeroSection = () => {
-    return (
-        <div id="about">
-            <HeroContainer
-                initial="hidden"
-                animate="visible"
-                variants={heroVariants}
-            >
-                <HeroBg>
-                    <HeroAnimation />
-                </HeroBg>
-                <HeroInnerContainer>
-                    <HeroLeftContainer id="Left">
-                        <Title>Hi, I am <br /> {mydata.name}</Title>
-                        <TextLoop>
-                            I am a
-                            <Span>
-                                <Typewriter
-                                    options={{
-                                        strings: mydata.roles,
-                                        autoStart: true,
-                                        loop: true,
-                                    }}
-                                />
-                            </Span>
-                        </TextLoop>
-                        <SubTitle>{mydata.description}</SubTitle>
-                        <ResumeButton
-                            href={mydata.resume}
-                            target='display'
-                            whileHover={{ scale: 1.05, boxShadow: "0 4px 20px #C197D2" }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            View My Resume
-                        </ResumeButton>
-                    </HeroLeftContainer>
+const buttonVariants = {
+    hover: {
+      scale: 1.1, // Slightly increase the scale to provide a hover effect
+      textShadow: "0px 0px 8px rgba(255, 255, 255, 1)", // Optional: add a text shadow effect on hover
+      boxShadow: "0px 5px 15px rgba(97, 54, 89, 0.4)", // Increase the box-shadow size for hover
+        transition: {
+            duration: 0.2, // Duration of the hover effect
+            type: "spring", // Use a spring animation for some bounciness
+            stiffness: 300, // How "stiff" the spring is
+        },
+        },
+        tap: {
+        scale: 0.9, // Decrease the scale slightly to give a tap effect
+        boxShadow: "0px 2px 10px rgba(97, 54, 89, 0.2)", // Decrease the box-shadow size for tap
+        transition: {
+            duration: 0.1, // Duration of the tap effect
+        },
+        },
+    };
 
-                    <HeroRightContainer id="Right">
-                        <Img src={Headshot} alt="hero-image" />
-                    </HeroRightContainer>
-                </HeroInnerContainer>
-            </HeroContainer>
-        </div>
-    );
-};
+    const subTitleVariants = {
+        hidden: {
+            opacity: 0,
+            y: 30 // Start a bit lower
+            },
+            visible: {
+            opacity: 1,
+            y: 0, // Move to the original position
+            transition: {
+                duration: 0.5, // How long the animation takes
+                ease: "easeOut", // Type of easing
+                delay: 0.2, // Wait before starting the animation
+            }
+            }
+        };
+    
 
-export default HeroSection;
+    const HeroSection = () => {
+        return (
+            <div id="about">
+                <HeroContainer
+                    initial="hidden"
+                    animate="visible"
+                    variants={heroVariants}
+                >
+                    <HeroBg>
+                        <HeroAnimation />
+                    </HeroBg>
+                    <HeroInnerContainer>
+                        <HeroLeftContainer id="Left">
+                            <Title>Hi, I am <br /> {mydata.name}</Title>
+                            <TextLoop>
+                                I am a
+                                <Span>
+                                    <Typewriter
+                                        options={{
+                                            strings: mydata.roles,
+                                            autoStart: true,
+                                            loop: true,
+                                        }}
+                                    />
+                                </Span>
+                            </TextLoop>
+                            <SubTitle
+                                variants={subTitleVariants}
+                                initial="hidden"
+                                animate="visible"
+                            >{mydata.description}</SubTitle>
+                            <ResumeButton
+                                href={mydata.resume}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                variants={buttonVariants}
+                                whileHover="hover"
+                                whileTap="tap"
+                            >
+                                View My Resume
+                            </ResumeButton>
+                        </HeroLeftContainer>
+                        <HeroRightContainer id="Right">
+                            <Img src={Headshot} alt="hero-image" />
+                        </HeroRightContainer>
+                    </HeroInnerContainer>
+                </HeroContainer>
+            </div>
+        );
+    };
+    
+    export default HeroSection;

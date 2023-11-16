@@ -150,7 +150,7 @@ export const HeroContainer = styled(motion.div)`
     cursor: pointer;
     `;
 
-    export const SubTitle = styled.div`
+    export const SubTitle = styled(motion.div)`
     font-size: 20px;
     line-height: 32px;
     margin-bottom: 42px;
