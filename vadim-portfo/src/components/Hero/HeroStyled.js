@@ -92,7 +92,7 @@ export const HeroContainer = styled(motion.div)`
     }
     `;
 
-    export const Img = styled.img`
+    export const Img = styled(motion.img)`
     position: relative;
     width: 100%;
     height: 100%;
@@ -101,6 +101,10 @@ export const HeroContainer = styled(motion.div)`
     border-radius: 50%;
     border: 2px solid ${({ theme }) => theme.primary};
 
+    cursor: grab; // Change the cursor to indicate the image can be dragged
+        &:active {
+    cursor: grabbing; // Change the cursor to grabbing when the image is being dragged
+    
     @media (max-width: 768px) {
         max-width: 400px;
         max-height: 400px;

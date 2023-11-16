@@ -32,8 +32,7 @@ const Projects = ({ openModal, setOpenModal }) => {
       <Wrapper>
         <Title>Projects</Title>
         <ToggleButtonGroup>
-          {/* Toggle logic should be updated to handle clicks and set the toggle state */}
-          <ToggleButton active={toggle === 'web app'} onClick={() => setToggle('web app')} >
+          <ToggleButton active={toggle === 'web app'} >
             WEB APP'S
           </ToggleButton>
         </ToggleButtonGroup>

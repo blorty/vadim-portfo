@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useTransform } from 'framer-motion'
 import { skills } from '../../MyData/mydata'
 
 const Container = styled.div`
@@ -102,6 +102,7 @@ const SkillList = styled.div`
 `
 
 const SkillItem = styled(motion.div)`
+    user-select: none; 
     font-size: 16px;
     font-weight: 400;
     color: ${({ theme }) => theme.text_primary + 80};
@@ -145,6 +146,45 @@ const skillItemVariants = {
     }
 };
 
+// Updated Skills component
+const CustomSkillItem = ({ item }) => {
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    // Set the transform range for a noticeable movement
+    const rotateX = useTransform(y, [-50, 50], [-20, 20]);
+    const rotateY = useTransform(x, [-50, 50], [20, -20]);
+
+    function handleMouseMove(e) {
+        const rect = e.target.getBoundingClientRect();
+        // Calculate the difference between the cursor position and the center of the item
+        const deltaX = ((e.clientX - rect.left) - (rect.width / 2)) / 5;
+        const deltaY = ((e.clientY - rect.top) - (rect.height / 2)) / 5;
+        x.set(deltaX);
+        y.set(deltaY);
+    }
+
+    // Style for glow effect on hover
+    const glowStyle = {
+        boxShadow: '0 0 15px rgba(0, 0, 0, 0.55)',
+    };
+
+    return (
+        <SkillItem
+            variants={skillItemVariants}
+            onMouseMove={handleMouseMove}
+            style={{ rotateX, rotateY }}
+            whileHover={{ scale: 1.1, ...glowStyle }}
+        >
+            <SkillImage src={item.image} />
+            {item.name}
+        </SkillItem>
+    );
+};
+
+
+
+// Skills component
 const Skills = () => {
     return (
         <Container id="skills">
@@ -163,13 +203,10 @@ const Skills = () => {
                             <SkillTitle>{skill.title}</SkillTitle>
                             <SkillList>
                                 {skill.skills.map((item, itemIndex) => (
-                                    <SkillItem 
+                                    <CustomSkillItem 
                                         key={itemIndex}
-                                        variants={skillItemVariants}
-                                    >
-                                        <SkillImage src={item.image}/>
-                                        {item.name}
-                                    </SkillItem>
+                                        item={item}
+                                    />
                                 ))}
                             </SkillList>
                         </Skill>

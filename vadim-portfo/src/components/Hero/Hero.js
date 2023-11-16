@@ -58,6 +58,19 @@ const buttonVariants = {
             }
         };
     
+        const heroImageVariants = {
+            drag: {
+              scale: 1.1, // Optional: change the scale when dragging
+              boxShadow: "0px 5px 20px rgba(0, 0, 0, 0.2)", // Optional: add a shadow when dragging\
+            },
+        };
+
+        const heroImageConstraints = {
+            top: -50,
+            right: -50,
+            bottom: -50,
+            left: -50,
+        };
 
     const HeroSection = () => {
         return (
@@ -102,7 +115,14 @@ const buttonVariants = {
                             </ResumeButton>
                         </HeroLeftContainer>
                         <HeroRightContainer id="Right">
-                            <Img src={Headshot} alt="hero-image" />
+                        <Img 
+                            src={Headshot} 
+                            alt="hero-image"
+                            variants={heroImageVariants}
+                            drag // Enable dragging
+                            dragConstraints={heroImageConstraints} // Set drag constraints
+                            whileDrag="drag" // Apply the "drag" variant when dragging
+                            />
                         </HeroRightContainer>
                     </HeroInnerContainer>
                 </HeroContainer>
