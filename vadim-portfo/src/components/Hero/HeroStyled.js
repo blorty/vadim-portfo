@@ -188,5 +188,3 @@ export const ResumeButton = styled(motion.a)`
     margin: 0; // Remove any default margin
     border: none; // Remove border
 `;
-
-

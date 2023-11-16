@@ -126,25 +126,23 @@ export const NavLink = styled(motion.a)`
     `
 
     export const MobileMenu = styled(motion.div)`
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 16px;
-        position: absolute;
-        top: 80px;
-        right: 0;
-        width: 100%;
-        padding: 12px 40px 24px 40px;
-        background: ${({ theme }) => theme.card_light+99};
-        transition: all 0.6s ease-in-out;
-        transform: ${({ isOpen }) => (isOpen ? 'translateY(0)' : 'translateY(-100%)')};
-        border-radius: 0 0 20px 20px;
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-        opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
-        z-index: ${({ isOpen }) => (isOpen ? '1000' : '-1000')};
-    `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    position: absolute;
+    top: 80px; // Adjusted to position below the navbar
+    right: 0;
+    width: 100%;
+    padding: 12px 40px 24px 40px;
+    background: ${({ theme }) => theme.card_light+99};
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    // Removed the transform and opacity properties here
+    z-index: ${({ isOpen }) => (isOpen ? '1000' : '-1000')};
+`
 
-    export const MobileMenuItems = styled.ul`
+    export const MobileMenuItems = styled(motion.ul)`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -191,7 +189,29 @@ export const NavLink = styled(motion.a)`
     }
     `;
 
-    export  const MobileLink = styled.a`
+    export const MobileGitHubButton = styled(motion.a)`
+    border: 2px solid ${({ theme }) => theme.primary};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 25px; // Adjust as needed
+    color: ${({ theme }) => theme.primary};
+    font-size: 16px; // Adjust as needed
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); // Optional
+
+    &:hover {
+        background: ${({ theme }) => theme.primary};
+        color: ${({ theme }) => theme.white};
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); // Optional
+    }
+`;
+
+
+    export const MobileLink = styled(motion.a)`
     color: ${({ theme }) => theme.text_primary};
     font-weight: 500;
     cursor: pointer;
@@ -204,7 +224,7 @@ export const NavLink = styled(motion.a)`
     &.active {
         border-bottom: 2px solid ${({ theme }) => theme.primary};
     }
-    `;
+`;
 
     export const MobileNavLogo = styled(LinkR)`
     width: 80%;
