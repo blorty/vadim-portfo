@@ -138,8 +138,6 @@ const ContactButton = styled(motion.input)`
   }
 `;
 
-
-
 const formVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -200,8 +198,8 @@ const Contact = () => {
   return (
     <Container>
         <Wrapper>
-            <Title>Contact</Title>
-            <Desc>Feel free to reach out to me for any questions or opportunities!</Desc>
+            <Title>Get in touch</Title>
+            <Desc>Reach out to me for any questions and opportunities!</Desc>
             <ContactForm 
               ref={form} 
               onSubmit={handleSubmit}

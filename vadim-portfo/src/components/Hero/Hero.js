@@ -90,7 +90,7 @@ import { mydata } from '../../MyData/mydata';
         const y = useMotionValue(0);
     
         // Use the useTransform hook to interpolate the scale based on the x and y values
-        const scale = useTransform(x, [-1500, 0, 500], [0, 1, 1.75]);
+        const scale = useTransform(x, [-1500, 0, 1000], [0, 1, 2.5]);
     
         // Use this method to animate the scale back to 1 when dragging ends
         const animateScale = () => {

@@ -51,6 +51,17 @@ const Title = styled.div`
         }
 `;
 
+const Desc = styled.div`
+    font-size: 18px;
+    text-align: center;
+    max-width: 600px;
+    color: ${({ theme }) => theme.text_secondary};
+    @media (max-width: 768px) {
+        margin-top: 12px;
+        font-size: 16px;
+        }
+`;
+
 const TimelineSection = styled.div`
     width: 100%;
     max-width: 1000px;
@@ -81,6 +92,7 @@ const Experience = () => {
         <TimelineItem {...props}>{children}</TimelineItem>
     );
     
+    // Wrap the new component with motion
     const AnimatedTimelineItem = motion(MotionTimelineItem);
     
     return (
@@ -90,10 +102,11 @@ const Experience = () => {
                 <TimelineSection>
                     <Timeline>
                         {experiencedata.map((experience, index) => (
-                            <AnimatedTimelineItem
+                            <motion.TimelineItem
                                 key={index}
                                 variants={timelineItemVariants}
                                 initial="hidden"
+                                whileInView="visible"
                                 viewport={{ once: true }}
                             >
                                 <TimelineSeparator>
@@ -103,7 +116,7 @@ const Experience = () => {
                                 <TimelineContent sx={{ py: '12px', px: 2 }}>
                                     <ExperienceCard experience={experience}/>
                                 </TimelineContent>
-                            </AnimatedTimelineItem>
+                            </motion.TimelineItem>
                         ))}
                     </Timeline>
                 </TimelineSection>
@@ -112,4 +125,4 @@ const Experience = () => {
     );
 };
 
-export default Experience;
+export default Experience

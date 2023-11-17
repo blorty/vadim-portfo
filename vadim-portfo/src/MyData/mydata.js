@@ -278,7 +278,6 @@ export const education = [
 
 export const experiencedata = [
     {
-        id: 1,
         imgage: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Flatiron_School_logo.svg/1200px-Flatiron_School_logo.svg.png",
         role: "Software Engineering & Fullstack Development Student",
         company: "Flatiron School",

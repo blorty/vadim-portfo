@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
 const Button = styled.button`
     opacity: 0;
     width: calc(100% - 20px); // Subtracting the padding from the width
@@ -134,7 +133,7 @@ const ProjectCards = ({ project, setOpenModal }) => {
             <Image src={project.image} />
             <Tags>
                 {project.tags?.map((tag, index) => (
-                    <Tag key={index}>{tag}</Tag> // Add key here
+                    <Tag key={index}>{tag}</Tag>
                 ))}
             </Tags>
             <Details>
@@ -144,7 +143,7 @@ const ProjectCards = ({ project, setOpenModal }) => {
             </Details>
             <Members>
                 {project.members?.map((member, index) => (
-                    <Avatar key={index} src={member.img} /> // Add key here
+                    <Avatar key={index} src={member.img} />
                 ))}
             </Members>
             <Button>View Project</Button>

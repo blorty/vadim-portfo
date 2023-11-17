@@ -1,4 +1,5 @@
-import { CloseRounded, GitHub, LinkedIn } from '@mui/icons-material';
+import { CloseRounded, GitHub } from '@mui/icons-material';
+import { motion } from 'framer-motion';
 import { Modal } from '@mui/material';
 import React from 'react'
 import styled from 'styled-components'
@@ -131,34 +132,53 @@ const Button = styled.a`
 `;
 
 
+const modalVariants = {
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.5 }
+};
+
 const ProjectDetails = ({ openModal, setOpenModal }) => {
     const project = openModal?.project;
+
+    const handleCloseModal = () => {
+        setOpenModal({ state: false, project: null });
+    };
+
     return (
-        <Modal open={true} onClose={() => setOpenModal({ state: false, project: null })}>
-            <Container>
-                <Wrapper>
-                    <CloseRounded
-                        style={{
-                            position: "absolute",
-                            top: "10px",
-                            right: "20px",
-                            cursor: "pointer",
-                        }}
-                        onClick={() => setOpenModal({ state: false, project: null })}
-                    />
-                    <Image src={project?.image} />
-                    <Title>{project?.title}</Title>
-                    <Date>{project.date}</Date>
-                    <Tags>
-                        {project?.tags.map((tag, index) => (
-                            <Tag key={index}>{tag}</Tag>
-                        ))}
-                    </Tags>
-                    <Desc>{project?.description}</Desc>
-                    <ButtonGroup>
-                        <Button dull href={project?.github} target='new'>View Code</Button>
-                    </ButtonGroup>
-                </Wrapper>
+        <Modal open={true} onClose={handleCloseModal}>
+            <Container onClick={handleCloseModal}>
+                <motion.div 
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={modalVariants}
+                    transition={{
+                        opacity: { duration: 0.8 },
+                        scale: { type: "spring", stiffness: 100 }
+                    }}
+                    onClick={(e) => e.stopPropagation()} 
+                >
+                    <Wrapper>
+                        <CloseRounded
+                            style={{ position: "absolute", top: "10px", right: "20px", cursor: "pointer" }}
+                            onClick={handleCloseModal}
+                        />
+                        <Image src={project?.image} />
+                        <Title>{project?.title}</Title>
+                        <Date>{project?.date}</Date>
+                        <GitHub style={{ position: "absolute", top: "10px", right: "60px", cursor: "pointer" }} onClick={() => window.open(project?.github, "_blank")} />
+                        <Tags>
+                            {project?.tags.map((tag, index) => (
+                                <Tag key={index}>{tag}</Tag>
+                            ))}
+                        </Tags>
+                        <Desc>{project?.description}</Desc>
+                        <ButtonGroup>
+                            <Button dull href={project?.github} target='new'>View Code</Button>
+                        </ButtonGroup>
+                    </Wrapper>
+                </motion.div>
             </Container>
         </Modal>
     );
