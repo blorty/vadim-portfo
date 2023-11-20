@@ -25,6 +25,7 @@
     "typewriter-effect": "^2.21.0"
   },
   "scripts": {
+    "postinstall": "npm install --force",
     "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
