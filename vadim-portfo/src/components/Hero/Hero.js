@@ -2,7 +2,7 @@ import React from 'react';
 import { animate, useMotionValue, useTransform } from 'framer-motion';
 import { HeroContainer, HeroBg, HeroLeftContainer, Img, HeroRightContainer, HeroInnerContainer, TextLoop, Title, Span, SubTitle, ResumeButton } from './HeroStyled';
 import HeroAnimation from '../HeroAnimation/HeroAnimation';
-import Headshot from '../../images/hs.jpg';
+import Headshot from '../../images/hs4.jpg';
 import Typewriter from 'typewriter-effect';
 import { mydata } from '../../MyData/mydata';
 

@@ -93,7 +93,6 @@ export const HeroContainer = styled(motion.div)`
     `;
 
     export const Img = styled(motion.img)`
-    position: relative;
     width: 100%;
     height: 100%;
     max-width: 400px;
