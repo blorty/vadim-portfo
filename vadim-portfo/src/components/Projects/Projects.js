@@ -15,7 +15,6 @@ const containerVariants = {
   },
 };
 
-// Variants for individual items
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
   visible: {

@@ -6,11 +6,10 @@ import Headshot from '../../images/hs4.jpg';
 import Typewriter from 'typewriter-effect';
 import { mydata } from '../../MyData/mydata';
 
-// Animation variants
     const heroVariants = {
         hidden: { 
             opacity: 0,
-            y: -50 // start 50 pixels above its final position
+            y: -50 
         },
         visible: { 
             opacity: 1,
@@ -25,20 +24,20 @@ import { mydata } from '../../MyData/mydata';
 
     const buttonVariants = {
         hover: {
-        scale: 1.1, // Slightly increase the scale to provide a hover effect
-        textShadow: "0px 0px 8px rgba(255, 255, 255, 1)", // Optional: add a text shadow effect on hover
-        boxShadow: "0px 5px 15px rgba(97, 54, 89, 0.4)", // Increase the box-shadow size for hover
+        scale: 1.1, 
+        textShadow: "0px 0px 8px rgba(255, 255, 255, 1)", 
+        boxShadow: "0px 5px 15px rgba(97, 54, 89, 0.4)", 
             transition: {
-                duration: 0.2, // Duration of the hover effect
-                type: "spring", // Use a spring animation for some bounciness
-                stiffness: 300, // How "stiff" the spring is
+                duration: 0.2, 
+                type: "spring", 
+                stiffness: 300, 
             },
             },
             tap: {
-            scale: 0.9, // Decrease the scale slightly to give a tap effect
-            boxShadow: "0px 2px 10px rgba(97, 54, 89, 0.2)", // Decrease the box-shadow size for tap
+            scale: 0.9, 
+            boxShadow: "0px 2px 10px rgba(97, 54, 89, 0.2)", 
             transition: {
-                duration: 0.1, // Duration of the tap effect
+                duration: 0.1, 
             },
             },
         };
@@ -46,15 +45,15 @@ import { mydata } from '../../MyData/mydata';
     const subTitleVariants = {
         hidden: {
             opacity: 0,
-            y: 30 // Start a bit lower
+            y: 30 
             },
             visible: {
             opacity: 1,
-            y: 0, // Move to the original position
+            y: 0, 
             transition: {
-                duration: 0.5, // How long the animation takes
-                ease: "easeOut", // Type of easing
-                delay: 0.2, // Wait before starting the animation
+                duration: 0.5, 
+                ease: "easeOut", 
+                delay: 0.2, 
             }
             }
         };
@@ -67,8 +66,8 @@ import { mydata } from '../../MyData/mydata';
         },
         dragEnd: {
             scale: 1,
-             x: 0, // Reset X position to initial
-            y: 0, // Reset Y position to initial
+            x: 0, 
+            y: 0, 
             transition: {
                 type: "spring",
                 stiffness: 300,

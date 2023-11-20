@@ -92,7 +92,6 @@ const Experience = () => {
         <TimelineItem {...props}>{children}</TimelineItem>
     );
     
-    // Wrap the new component with motion
     const AnimatedTimelineItem = motion(MotionTimelineItem);
     
     return (
